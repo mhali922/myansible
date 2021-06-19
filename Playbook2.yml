@@ -1,10 +1,10 @@
 # yum and service modules with sudo access
 
 ---
-- hosts: web
+- hosts: webserver
   become: yes
   vars: 
-    username: sonal
+    username: root
     doc_root: /var/www/html
   tasks:
 
