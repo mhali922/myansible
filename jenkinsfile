@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+    stages{
+        stage('clone repo from github')
+        {
+            steps{
+                git branch: 'main', url: 'https://github.com/mhali922/myansible'
+            }
+        }
+        stage('execute ansible playbook')
+        {
+            steps{
+                //ansiblePlaybook credentialsId: 'mb777', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook1.yml'
+                ansiblePlaybook credentialsId: 'mb777', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'Playbook2.yml'
+            }
+        }
+        
+        
+    }
+}
